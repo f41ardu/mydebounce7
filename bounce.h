@@ -14,19 +14,19 @@
 
 class bounce
 {
-  public:                             // öffentlich
-    // PinClass3();                   // der Default-Konstruktor
-    bounce(uint8_t a);             // Konstruktor mit Parameter
+  public:                                             // öffentlich
+    bounce();                                         // der Default-Konstruktor
+    bounce(uint8_t a);                                // Konstruktor mit Parameter
     bounce(unsigned int interval_millis,  uint8_t a); // Button Debounce
-    ~bounce();                     // Class Destruktor
-                                      // Funktionen
-    void init(uint8_t pin);           // einen PIN initialisieren
-    bool read();                      // PIN (Button) lesen
+    ~bounce();                                        // Class Destruktor
+                                                      // Methoden
+    volatile bool read();                                      // PIN (Button) lesen
 
-  private:                            // privat
-    bool _status;
-    uint8_t _pin;
-    unsigned int _previousMillis, _currentMillis, _intervalMillis;
+  private:                                            // private Methode
+    void init(uint8_t pin);                           // einen PIN initialisieren
+    volatile bool _status;
+    volatile uint8_t _pin;
+    volatile unsigned int _previousMillis, _currentMillis, _intervalMillis;
 };
 
 #endif // PinClass3
